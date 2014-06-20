@@ -12,6 +12,8 @@ gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+gem "paperclip", "~> 4.1"
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -29,6 +31,22 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+group :development, :test do
+	gem 'rspec-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+end
+
+#angular huh?!
+# gem 'active_model_serializers'
+
+# gem 'angularjs-rails'
+
+gem 'foundation-rails'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
