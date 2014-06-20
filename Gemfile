@@ -46,6 +46,8 @@ end
 # gem 'angularjs-rails'
 
 gem 'foundation-rails'
+gem 'figaro'
+gem 'aws-sdk'
 
 
 # Use unicorn as the app server

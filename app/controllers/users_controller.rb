@@ -29,7 +29,7 @@ def index
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:first_name, :last_name, :email, :phone_number, :agency))
+    if @user.update(params.require(:user).permit(:first_name, :last_name, :email, :avatar, :phone_number, :agency))
       redirect_to users_path
     else
       render 'edit'
