@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
 	validates_length_of :phone_number, minimum: 10, maximum: 10
 	validates_uniqueness_of :email
 	validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create
-	
+	has_attached_file :avatar, :styles => {:medium => "300x300>", :small => "150x150#", :thumb => "45x45#" }, 
+    :storage => :s3,
+    :default_url => "/images/:style/missing.png"
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+    
 	def password
   		@password
     end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
  resource :sessions, only: [:new, :create, :destroy]
  resources :users
  root 'users#index'
+
   # get 'users/index'
 
   # get 'users/new'

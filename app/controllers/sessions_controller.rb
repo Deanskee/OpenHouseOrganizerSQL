@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
   session.delete(:remember_token)
-    	redirect_to weddings_path
+    	redirect_to welcomes_path
   end
 end

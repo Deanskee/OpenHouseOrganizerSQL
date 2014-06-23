@@ -1,38 +1,23 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<h1>Agents Sign up</h1>
-<br>
+<div class = "basic-container cf">
+   <!--  <h1><%# @user.first_name %>'s Profile</h1> -->
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th>Agency</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <div class="profile-top cf">
+        <div id="profile-photo">
+        	<%# if @user.avatar_file_name %>
+        		<%# image_tag @user.avatar_url(:medium) %><br /><br />
+        	<%# end %>
+        </div>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= user.agency %></td>
-        <td><%= link_to 'New Agent', new_user_path(user)%></td>
-        <td><%= link_to 'View', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    	<div id="profile-info">
+            <p><span class="title">First Name: </span><%= @user.first_name %></p>
 
-<br />
+            <p><span class="title">Last Name: </span><%= @user.last_name %></p>
+
+            <p><span class="title">Email: </span><= @user.email ></p>
+
+            <p><span class="title">Phone Number: </span><%= @user.phone_number %></p><br />
+
+            <%=link_to "Edit Profile", edit_user_path(current_user), class: "small button" %>
+        </div>
+    </div>
 
