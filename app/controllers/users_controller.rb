@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+   before_action :set_user, :only => [:show, :edit, :update, :destroy]
+
+   respond_to :json, :html
 def index
     @users = User.all
   end
@@ -48,6 +51,6 @@ def index
   protected
 
   def user_params
-      params.require(:user).permit(:email, :password, :first_name, :last_name, :message, :phone_number, :agency)
+      params.require(:user).permit(:email, :password, :first_name, :last_name, :avatar, :phone_number, :agency)
     end
 end

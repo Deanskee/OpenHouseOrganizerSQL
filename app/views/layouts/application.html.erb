@@ -11,9 +11,71 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+   <body>
 
-    <%= yield %>
+
+    <div class="sticky">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a><%= link_to "Users Page", root_path %></a></h1>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Left Nav Section -->
+          <ul class="left">
+            <!-- <li> <a class="not-link">Enter venue name, city, and state: </a></li> -->
+            <li class="has-form">
+              <form action="/venues" method: "get">
+                <div class="row collapse">
+                  <%# form_tag locations_path, :method => :get do %>
+                  <!--this search box should really be longer-->
+                  
+                  <div class="large-1 small-3 columns">
+                    <%= submit_tag "Search", :name => nil, class: "button" %>
+                    <%# end %>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+
+            <!-- Right Nav Section -->
+          <ul class="right">
+            <li><%# link_to "Add New Location", new_venue_path %></li>
+            <% if session[:remember_token] %>
+            <li><%= image_tag current_user.avatar_url(:thumb) %></li>
+            <li class="has-dropdown">
+              <!-- <a href="#">Hello, <%# current_user.first_name %></a> -->
+                <ul class="dropdown">
+                  <li><%=link_to "View", user_path(current_user) %></li>
+                  <li><%=link_to "Edit", edit_user_path(current_user) %></li>
+                </ul>
+            </li>
+            <li><%= link_to "Log Out", session_path(current_user), method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Sign In", new_session_path %></li>
+            <% end %>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+<!-- <div class="cf"> -->
+
+
+      <%= yield %>
+
+<!-- </div> -->
+
     <%= javascript_include_tag "application" %>
+
+    <script>$(document).foundation();</script>
+
   </body>
 </html>

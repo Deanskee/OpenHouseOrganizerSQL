@@ -1,2 +1,22 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class = "basic-container cf">
+    <h1><%= @user.first_name %>'s Profile</h1>
+
+    <div class="profile-top cf">
+        <div id="profile-photo">
+        	<% if @user.avatar_file_name %>
+        		<%= image_tag @user.avatar_url(:medium) %><br /><br />
+        	<% end %>
+        </div>
+
+    	<div id="profile-info">
+            <p><span class="title">First Name: </span><%= @user.first_name %></p>
+
+            <p><span class="title">Last Name: </span><%= @user.last_name %></p>
+
+            <p><span class="title">Email: </span><= @user.email ></p>
+
+            <p><span class="title">Phone Number: </span><%= @user.phone_number %></p><br />
+
+            <%=link_to "Edit Profile", edit_user_path(current_user), class: "small button" %>
+        </div>
+    </div>
