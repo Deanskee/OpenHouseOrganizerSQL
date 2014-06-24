@@ -27,7 +27,7 @@
           <ul class="left">
             <!-- <li> <a class="not-link">Enter venue name, city, and state: </a></li> -->
             <li class="has-form">
-              <form action="/venues" method: "get">
+              <form action="/groups" method: "get">
                 <div class="row collapse">
                   <%# form_tag locations_path, :method => :get do %>
                   <!--this search box should really be longer-->
@@ -50,10 +50,10 @@
                   <li><%=link_to "Edit", edit_user_path(current_user) %></li>
                 </ul>
             </li>
-            <li><%= link_to "Log Out", session_path(current_user), method: :delete %></li>
+            <li><%= link_to "Log Out", sessions_path(current_user), method: :delete %></li>
             <% else %>
             <li><%= link_to "Sign Up", new_user_path %></li>
-            <li><%= link_to "Sign In", new_session_path %></li>
+            <li><%= link_to "Sign In", new_sessions_path %></li>
             <% end %>
           </ul>
         </section>

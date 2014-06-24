@@ -6,12 +6,17 @@
     <span class="title">Email: </span><%= f.email_field :email %>
 
     <span class="title">Password: </span><%= f.password_field :password %>
+    <span class="title">Password Confirm: </span><%= f.password_field :password_confirmation %>
+
+    <div></div>
 
     <span class="title">Avatar: </span><%= f.file_field :avatar %>
+
+    <span class="title"><!-- Agency:  --></span><%# f.file_field :agency %>
+
+    <
     
-    <span class="title">Agency: </span><%= f.file_field :agency %>
     
-    
-  <%= f.submit "Submit", class: "small button" %>
+  <%= f.submit "Submit", class: "tiny button" %>
 
 <% end %>

@@ -9,13 +9,13 @@
         </div>
 
     	<div id="profile-info">
-            <p><span class="title">First Name: </span><%= @user.first_name %></p>
+            <p><span class="title">First Name: </span><%= current_user.first_name %></p>
 
-            <p><span class="title">Last Name: </span><%= @user.last_name %></p>
+            <p><span class="title">Last Name: </span><%= current_user.last_name %></p>
 
-            <p><span class="title">Email: </span><= @user.email ></p>
-
-            <p><span class="title">Phone Number: </span><%= @user.phone_number %></p><br />
+            <p><span class="title">Email: </span><%= current_user.email %></p>
+<!-- 
+            <p><span class="title">Phone Number: </span><%# @user.phone_number %></p><br /> -->
 
             <%=link_to "Edit Profile", edit_user_path(current_user), class: "small button" %>
         </div>

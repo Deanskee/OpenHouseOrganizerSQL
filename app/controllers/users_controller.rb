@@ -3,8 +3,9 @@ class UsersController < ApplicationController
 
    respond_to :json, :html
 def index
-    @users = User.all
-  end
+  @users = User.all
+  respond_with @users
+end
 
   def new
     @user = User.new
@@ -13,17 +14,22 @@ def index
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Thank you for signing up!"
-      session[:remember_token] = @user.id
-      @current_user = @user
-      redirect_to users_path
+      respond_to do |format|
+      session_create # This method is inhereited from the applicaiton_controller
+     format.html  {redirect_to venues_path, notice: "Welcome new user."}
+     format.json { render json: @user, status: :created}
+   end
     else
-      render :new
-    end 
+      respond_to do |format|
+      flash[:danger] = "User could not be created"
+      format.html {render :new}
+      format.json { render json: @user.errors, status: :unprocessable_entity}
+    end
+    end
   end
 
   def show
-    @user = User.find(params[:id])
+    respond_with @user
   end
 
   def edit
@@ -31,26 +37,34 @@ def index
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:first_name, :last_name, :email, :avatar, :phone_number, :agency))
-      redirect_to users_path
-    else
-      render 'edit'
+     if @user.update(user_params)
+      respond_to do |format|
+      format.html {redirect_to user_path}
+      format.json {render nothing: true, status: :no_content}
+     end
+     else
+      respond_to do |format|
+      format.html {redirect_to edit_user_path}
+      format.json { render json:@user.errors, status: :unprocessable_entity}
+     end
     end
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    redirect_to users_path
+    @user.destroy
+    respond_to do |format|
+    format.html {redirect_to new_user_path}
+    format.json {render json: :no_content}
   end
-
- 
-
-
+  end
 
   protected
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-      params.require(:user).permit(:email, :password, :first_name, :last_name, :avatar, :phone_number, :agency)
+      params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :avatar, :phone_number, :agency)
     end
 end
