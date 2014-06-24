@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcomes/index'
+  
 
  resource :sessions, only: [:new, :create, :destroy]
  resources :users
- root 'users#index'
+ root 'welcomes#index'
 
   # get 'users/index'
 
