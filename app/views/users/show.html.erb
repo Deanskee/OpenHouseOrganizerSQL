@@ -1,5 +1,4 @@
 <div class = "basic-container cf">
-    <h1><%= @user.first_name %>'s Profile</h1>
 
     <div class="profile-top cf">
         <div id="profile-photo">
@@ -13,10 +12,14 @@
 
             <p><span class="title">Last Name: </span><%= @user.last_name %></p>
 
-            <p><span class="title">Email: </span><= @user.email ></p>
+            <p><span class="title">Email: </span><%= @user.email %></p>
 
             <p><span class="title">Phone Number: </span><%= @user.phone_number %></p><br />
-
-            <%=link_to "Edit Profile", edit_user_path(current_user), class: "small button" %>
+            
+          <% if current_user %>
+          <%=link_to "Edit Profile", edit_user_path(current_user), class: "small button" %>
+            <%=link_to "Add Open House", new_location_path(current_user), class: "small button" %>
+          <% end %>
         </div>
     </div>
+</div>

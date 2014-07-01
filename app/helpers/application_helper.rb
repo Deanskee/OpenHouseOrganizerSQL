@@ -1,17 +1,11 @@
 module ApplicationHelper
 
-	def current_user
-    	if session[:remember_token]
-    		@current_user ||= User.find(session[:remember_token])
-    	else
-    		false
-    	end
-  	end
+    def current_user
+        @current_user ||= session[:remember_token] && User.find(session[:remember_token])
+    end
 
-  	def authenticate_user
-	    if !self.current_user
-	      redirect_to new_sessions_path
-	    end
-  	end
+    def signed_in?
+        current_user
+    end
 
 end

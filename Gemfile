@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
-gem "paperclip", "~> 4.1"
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -31,6 +31,11 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'omniauth-facebook', '1.4.0'
+gem 'figaro'
+
+gem "paperclip", "~> 4.1"
+gem 'aws-sdk'
 
 group :development, :test do
 	gem 'rspec-rails'
@@ -46,8 +51,7 @@ end
 # gem 'angularjs-rails'
 
 gem 'foundation-rails'
-gem 'figaro'
-gem 'aws-sdk'
+
 gem 'rails_12factor'
 
 # Use unicorn as the app server

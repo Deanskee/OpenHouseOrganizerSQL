@@ -15,8 +15,9 @@ end
     @user = User.new(user_params)
     if @user.save
       respond_to do |format|
+      flash[:success] = "Thank you for signing up!"
       session_create # This method is inhereited from the applicaiton_controller
-     format.html  {redirect_to venues_path, notice: "Welcome new user."}
+     format.html  {redirect_to users_path, notice: "Welcome new user."}
      format.json { render json: @user, status: :created}
    end
     else
