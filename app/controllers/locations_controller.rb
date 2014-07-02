@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(location_params)
+    @location = current_user.locations.new(location_params)
      if @location.save
         respond_to do |format|
         flash[:success] = "Location successfully created"
@@ -29,12 +29,13 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    respond_with @location
   end
 
   def update
     if @location.update(location_params)
       respond_to do |format|
-      format.html {redirect_to location_path}
+      format.html {redirect_to user_path(current_user)}
       format.json {render nothing: true, status: :no_content}
     end
     else
@@ -58,11 +59,11 @@ class LocationsController < ApplicationController
 
   protected
     def set_location
-    @location = Location.find(params[:id])
+      @location = Location.find(params[:id])
     end
 
     def location_params
-    params.require(:location).permit(:owner, :address, :city, :state, :zip_code, :picture)
+      params.require(:location).permit(:owner, :address, :city, :state, :zip_code, :picture)
     end
 
 end
