@@ -1,10 +1,13 @@
 class LocationsController < ApplicationController
     before_action :authenticate_user, :only => [:new, :create, :edit, :update, :destroy]
     before_action :set_location, :only => [:show, :edit, :update, :destroy]
-
     respond_to :json, :html
   def index
-    @locations = Location.all
+    if(!current_user)
+      @locations = Location.all
+    else
+      @locations = Location.where(:user_id => current_user.id)
+    end
   end
 
   def new

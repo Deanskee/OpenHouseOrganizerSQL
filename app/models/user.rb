@@ -14,10 +14,12 @@ class User < ActiveRecord::Base
   end
 
 	has_many :locations
+	has_many :visitors, through: :locations
 	# validates :first_name, on: :create, if: "name.nil?"
 	# validates :last_name, presence: true
 	# validates_length_of :phone_number, minimum: 10, maximum: 10
-	# validates_uniqueness_of :email
+	validates :email, presence: true
+	validates_uniqueness_of :email
 	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :storage => :s3, :default_url => "missing_profile.png"
  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   

@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
    before_action :set_user, :only => [:show, :edit, :update, :destroy]
-
+   before_action :login_required, :except => [:new, :create]
+   before_action :authorize_user, :only => [:show, :edit, :update, :destroy]
    respond_to :json, :html
-def index
-  @users = User.all
-  respond_with @users
-end
+  def index
+    @users = User.all
+    respond_with @users
+  end
 
   def new
     @user = User.new
@@ -63,6 +64,12 @@ end
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def authorize_user
+    unless current_user.id.to_s == params[:id]
+      redirect_to user_path(current_user)
+    end
   end
 
   def user_params

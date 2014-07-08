@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>
+<%= form_for @visit do |f| %>
     <form role="form">
         <div class="form-group">
             <span class="title">First Name: </span><%= f.text_field :first_name, :placeholder => " First Name" %>
@@ -8,12 +8,7 @@
         </div>
         <div class="form-group"><span class="title">Email: </span><%= f.email_field :email, :placeholder => "Email" %>
         </div>
-        <div class="form-group"><span class="title">Password: </span><%= f.password_field :password, :placeholder => " Password"  %>
-        </div>
-        <div class="form-group"><span class="title">Agency: </span><%= f.text_field :agency, :placeholder => "Agency" %>
-        </div>
-        <span class="title">Avatar: </span><%= f.file_field :avatar %>
-        <br>
+         <br>
             <%= f.submit "Submit", class: "tiny button" %>
     </form>
 <% end %>

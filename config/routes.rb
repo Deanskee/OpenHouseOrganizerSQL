@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
-  
- # resource :sessions, only: [:new, :create, :destroy]
+  get 'visits/create'
+
+# resource :sessions, only: [:new, :create, :destroy]
+ get '/users/:id/locations' => 'locations#index', :as => 'users_location'
  resources :users
- resources :locations
+ resources :locations do 
+    resources :visits 
+  end
+ resources :visitors
  root 'welcomes#index'
  resources :sessions, only: [:new, :create, :destroy]
  
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

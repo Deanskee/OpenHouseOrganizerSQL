@@ -1,7 +1,7 @@
-<div class = "basic-container cf">
+<div class = "basic-container">
 
-    <div class="profile-top cf">
-        <div id="profile-photo">
+    <div class="profile-top columns small-12 medium-4">
+        <div id="profile-photo" class="small-only-text-center">
         	<% if @user.avatar_file_name %>
         		<%= image_tag @user.avatar_url(:medium) %><br /><br />
         	<% end %>
@@ -18,33 +18,10 @@
             <p><span class="title">Phone Number: </span><%= @user.phone_number %></p><br />
         </div>
     </div>
-                <div class="profile-locations cf">
-                    <table class="responsive user-show">
-                        <h3> Open Houses </h3>
-                        <% @user.locations.each do |l| %>
-                          <tr>
-                            <td><% if l.picture_file_name %>
-                                <%= image_tag l.location.picture_url(:thumb) %>
-                                <% end %>
-                            </td>
-                            <p><span class="title"> Owner: </span> <%= link_to l.owner %></p>
-                            <p><span class="title"> Address: </span> <%= l.address %></p>
-                            <p><span class="title"> City: </span> <%= l.city %></p>
-                            <p><span class="title"> State: </span> <%= l.state %></p>
-                            <p><span class="title"> Zip-Code: </span> <%= l.zip_code %></p>
-                        
-                              <% if current_user == l.user %>
-                                <ul class="button-group">
-                                  <li><%=link_to "Edit Profile Info", edit_user_path(current_user), class: "small button" %></li>
-                                  <li><%=link_to "Add Open House", new_location_path(current_user), class: "small button" %></li>     
-                                  <li><%=link_to "Edit Open House", edit_location_path(current_user), class: "small button" %></li>
-                                </ul>
-                              <% end %>
-                                <br />
-                                <br />
-                          </tr>
-                        <% end %>
+    <div class="profile-locations columns small-12 medium-8">
+        <% @locations = @user.locations%>
+        <%= render partial: 'locations/list'%>
+    </div>
+</div>
 
-                    </table>
-                </div>
-<!-- </div> -->
+

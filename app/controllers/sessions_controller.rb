@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       session_create
-      redirect_to user_path(current_user), notice: "You have successfully logged in."
+      redirect_to session.delete(:redirect) || user_path(current_user), notice: "You have successfully logged in."
     else
       flash.now[:notice] = "Invalid login/password combination. Please try again."
       render :new

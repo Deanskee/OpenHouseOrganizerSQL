@@ -1,0 +1,14 @@
+<%= form_for [@location, @visit] do |f| %>
+    <form role="form">
+        <div class="form-group">
+            <span class="title">First Name: </span><%= text_field :visitor, :first_name, :placeholder => " First Name" %>
+        </div>
+        <div class="form-group">
+            <span class="title">Last Name: </span><%= text_field :visitor, :last_name, :placeholder => "Last Name" %>
+        </div>
+        <div class="form-group"><span class="title">Email: </span><%= email_field :visitor, :email, :placeholder => "Email" %>
+        </div>
+         <br>
+            <%= f.submit "Submit", class: "tiny button" %>
+    </form>
+<% end %>

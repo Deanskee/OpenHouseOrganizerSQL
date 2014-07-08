@@ -8,4 +8,11 @@ module ApplicationHelper
         current_user
     end
 
+
+    def login_required
+    	unless current_user
+    	  session[:redirect] = request.original_url
+    	  redirect_to new_session_path
+    	end
+    end
 end

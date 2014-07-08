@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+
   </head>
 
    <body>
@@ -31,10 +32,11 @@
           <% if current_user || session[:remember_token] %>
           <li><%= image_tag current_user.profile_picture_url %></li>
           <li class="has-dropdown">
-            <a href="#">Welcome <strong><%= current_user.name %></strong>! </a>
+            <a href="#">Welcome <strong><%= current_user.full_name %></strong>! </a>
             <ul class="dropdown"> 
-              <li><%=link_to "View", user_path(current_user) %></li>
-                     
+              <li><%=link_to "My Profile", user_path(current_user) %></li>
+              <li><%=link_to "My Open Houses", users_location_path(current_user) %></li>
+              <li><%=link_to "Edit Profile Info", edit_user_path(current_user)%></li>
               <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
             </ul>
           </li>
@@ -53,10 +55,11 @@
    <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-
-    <%= yield %>
+    <div class="row">
+      <%= yield %>
+    </div>
 
   <%= javascript_include_tag "application" %>
-        
+  <%= params %>
   </body>
 </html>

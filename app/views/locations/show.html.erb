@@ -1,2 +1,20 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<table>
+  <thead>
+    <tr>
+      <th width="120">First Name</th>
+      <th width="150">Last Name</th>
+      <th width="150">Email</th>
+      <th width="150">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @location.visitors.each do |v| %>
+    <tr>
+      <td><%= v.first_name %></td>
+      <td><%= v.last_name %></td>
+      <td><%= v.email %></td>
+      <td><%= v.phone_number %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
