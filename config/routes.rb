@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'visits/create'
-
-# resource :sessions, only: [:new, :create, :destroy]
+ get 'visits/create'
  get '/users/:id/locations' => 'locations#index', :as => 'users_location'
  resources :users
  resources :locations do 

@@ -1,3 +1,9 @@
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script type= "text/javascript" 
+          src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true">
+  </script>
+
+
   <h3> Open Houses <%=link_to "Add", new_location_path(current_user), class: "tiny button addbtn" %></h3>
         <% @locations.each do |l| %>
             <%= link_to location_path(l) do%>
@@ -28,6 +34,7 @@
                             <span class="title"> Visitor: </span> 
                             <%= link_to l.visitors.count, location_path(l) %>
                         </p>
+                        
                     </div>
                     <% if current_user == l.user %>
                             <div class="editbtn"><%=link_to "Edit", edit_location_path(l), class: "small" %></div>
@@ -43,19 +50,72 @@
     </dl>
             <% end %>
         <% end %>
- <div id="map_canvas"></div>
-    <div class="parks_index_container">
-        <div id="control_container" class="row">
-             <div id="results" class="columns small-12 medium-6"></div>
-                
-        </div>
-    </div>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script>
 
-function initialize() {
+
+
+<script type="text/javascript">
+    
+    var map;
+    var service;
+    function handleSearchResults(results, status)
+    {
+        console.log(results);
+
+        for(var i = 0; i < results.length; i++) {
+
+            var marker = new google.maps.Marker({
+            position: results[i].geometry.location,
+            map: map, 
+            icon: results[i].icon //change here if you want to input custom pic of marker
+            });
+        }
+    }
+
+    function performSearch()
+    {   
+        var request = {
+            bounds: map.getBounds(), //restricts location search to whatever is in the view of map
+            street_address: ""
+        }
+        service.nearbySearch(request, handleSearchResults);
+    }
+    function initialise(location)
+    {
+        console.log(location);
+
+        var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+        // var myLatLng = new google.maps.LatLng(<%# location.latitude%>, <%# location.longitude%>);
+
+        var mapOptions = {
+            center: currentLocation,
+            zoom: 9,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+            position: currentLocation,
+            map: map
+        });
+
+        service = new google.maps.places.PlacesService(map);
+        
+        //this ensures we wait until the map bounds are initialised before we perform the search
+        //waits until the bounds exist before it starts to search. 
+        google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+
+    }
+
+    $(document).ready(function()
+    {
+        navigator.geolocation.getCurrentPosition(initialise);
+    });
+</script>
+
+<!-- function initialize() {
  
-    var myLatLng = new google.maps.LatLng(<%= @locations.first.latitude%>  <%=@locations.first.longitude%>); // we set this as a var because we're going to reuse it for center/marker position -- you can elect to create separate google.maps.LatLng objects
+    var myLatLng = new google.maps.LatLng( 34.045744, -118.439904); // we set this as a var because we're going to reuse it for center/marker position -- you can elect to create separate google.maps.LatLng objects
     var mapOptions = {
     center: myLatLng,
     zoom: 9
@@ -83,9 +143,9 @@ function mapLocations(spot_data) {
 
           for (i=0; i < 7; i++) {
             newMarker = new google.maps.Marker({
-              position: new google.maps.LatLng(spot_data["locations"][i]["latitude"], spot_data["locations"][i]["longitude"]),
+              position: new google.maps.LatLng(location_data["locations"][i]["latitude"], location_data["locations"][i]["longitude"]),
               map: map,
-              title: (spot_data["locations"][i]["name"])
+              title: (location_data["locations"][i]["name"])
           });
 
         };
@@ -96,3 +156,4 @@ function mapLocations(spot_data) {
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
+ -->
