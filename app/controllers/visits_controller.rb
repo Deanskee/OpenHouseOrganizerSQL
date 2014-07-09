@@ -15,7 +15,7 @@ class VisitsController < ApplicationController
 	      end
       else
         respond_to do |format|
-        flash[:danger] = "Please enter a valid name ()"
+        flash[:danger] = "Visitor wasn't saved!()"
         format.html {render 'new'}
         format.json { render json: @visit.errors, status: :unprocessable_entity}
       end

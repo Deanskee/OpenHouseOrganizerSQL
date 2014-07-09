@@ -15,7 +15,8 @@
 
             <p><span class="title">Email: </span><%= @user.email %></p>
 
-            <p><span class="title">Phone Number: </span><%= @user.phone_number %></p><br />
+            <!-- <p><span class="title">Phone Number: </span><%# @user.phone_number %></p><br /> -->
+            <p><%=link_to "Edit Profile Info", edit_user_path(current_user)%></p>
         </div>
     </div>
     <div class="profile-locations columns small-12 medium-8">
