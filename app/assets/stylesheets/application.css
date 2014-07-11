@@ -20,3 +20,23 @@
 	height: 46px;
 	width: 46px;
 }
+
+.title {
+	font-size: 20px;
+}
+
+p, a, h3 {
+	font-family: 'Abril Fatface', sans-serif;
+}
+
+.accordion dd > a {
+	font-size: 18px;
+	font-family: 'Abril Fatface', sans-serif;
+	}
+
+/*.basic-container, table {
+	margin: 0 auto;
+}*/
+
+
+@media (max-width: 480px) {}

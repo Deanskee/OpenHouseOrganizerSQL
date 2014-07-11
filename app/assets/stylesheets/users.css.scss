@@ -15,3 +15,41 @@ button, .button{
 .locationpanel{
 	position: relative;
 }
+
+// .newbtn, .small {
+// 	margin-right: 2%;
+// }
+
+@media (max-width: 480px) {
+
+	#profile-info {
+		margin-top: 12px;
+		margin-left: 2px;
+
+		h3 {
+			text-decoration: underline;
+			font-size: 23px;
+			color: red;
+		}
+			p, a {
+				margin-bottom: 10px;
+			}
+	}
+
+
+	.profile-locations columns small-12 medium-8 {
+
+		.tiny button addbtn, a {
+			margin-bottom: 10px;
+
+		}
+
+	}
+
+	
+		// .small {
+		// 	margin-top: 3%;
+
+		// }
+
+}

@@ -9,56 +9,54 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <link href="//fonts.googleapis.com/css?family=Abril Fatface&subset=latin" rel="stylesheet" type="text/css">
 
   </head>
 
   <body>
-
-
       <div class="sticky">
         <nav class="top-bar" data-topbar>
             <ul class="title-area">
               <li class="name">
                 <h1><a><%= link_to "Home", root_path %></a></h1>
               </li>
-              <li class="toggle-topbar menu-icon"></li>
+              <li class="toggle-topbar menu-icon"><a href="#"></a></li>
             </ul>
 
           <section class="top-bar-section">
-              <ul class="left">
-              </ul>
+              <!-- <ul class="left">
+
+              </ul> -->
               <ul class="right">
-                <li><%# link_to "Add New Group", new_group_path %></li>
-                <% if current_user || session[:remember_token] %>
-                <li><%= image_tag current_user.profile_picture_url %></li>
-                <li class="has-dropdown">
-                  <a href="#">Welcome <strong><%= current_user.full_name %></strong>! </a>
-                  <ul class="dropdown"> 
-                    <li><%= link_to "Home", root_path %></li>
-                    <li><%=link_to "My Profile", user_path(current_user) %></li>
-                    <li><%=link_to "My Open Houses", users_location_path(current_user) %></li>
-                    <li><%=link_to "Edit Profile Info", edit_user_path(current_user)%></li>
-                    <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-                  </ul>
-                </li>
+                  <% if current_user || session[:remember_token] %>
+                  <li><%= image_tag current_user.profile_picture_url %></li>
+                  <li class="has-dropdown">
+                    <a href="#">Welcome <strong><%= current_user.full_name%></strong>! </a>
+                    <ul class="dropdown"> 
+                      <li><%=link_to "Home", root_path %></li>
+                      <li><%=link_to "My Profile", user_path(current_user)%></li>
+                      <li><%=link_to "My Open Houses", users_location_path(current_user)%></li>
+                      <li><%=link_to "Edit Profile Info", edit_user_path(current_user)%></li>
+                      <li><%=link_to "Sign out", signout_path, id: "sign_out" %></li>
+                    </ul>
+                  </li>
               </ul>
-              <!-- <li> --><%# link_to "Log Out", session_path(current_user), method: :delete %><!-- </li> -->
-                <% else %>
-                  <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
-                  <li><%= link_to "Sign Up", new_user_path %></li>
-                  <li><%= link_to "Sign In", new_session_path %></li>
-                <% end %>
-                    
+                  <% else %>
+                    <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
+                    <li><%= link_to "Sign Up", new_user_path %></li>
+                    <li><%= link_to "Sign In", new_session_path %></li>
+                  <% end %>        
           </section>
         </nav>
       </div>
 
+
        <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
-        <div class="row">
+       <!--  <div class="row"> -->
           <%= yield %>
-        </div>
+        <!-- </div> -->
 
       <%= javascript_include_tag "application" %>
       <%= params %>
