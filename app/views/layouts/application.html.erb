@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
     <link href="//fonts.googleapis.com/css?family=Abril Fatface&subset=latin" rel="stylesheet" type="text/css">
     <link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
-    <script type="text/javascript" src="responsive-tables.js"></script>
+    <script type="text/javascript" src="../../assets/javascripts/responsive-tables.js"></script>
     <link rel="stylesheet" href="foundation-icons.css" />
 
   </head>
@@ -49,10 +49,12 @@
                       <li><%=link_to "Sign out", signout_path, id: "sign_out" %></li>
                </ul>
                   <% else %>
+                  <ul class="right">
                     <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
                     <li><%= link_to "Sign Up", new_user_path %></li>
                     <li><%= link_to "Sign In", new_session_path %></li>
-                  <% end %>        
+                  <% end %>  
+                  </ul>      
           </section>
         </nav>
       </div>
@@ -62,7 +64,7 @@
             <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
           <%= yield %>
-          
+
       <%= javascript_include_tag "application" %>
       <%# params %>
   </body>
