@@ -38,7 +38,7 @@
                     </div>
                     <% if current_user == l.user %>
                             <div class="editbtn"><%=link_to "Edit", edit_location_path(l), class: "small" %></div>
-                            <div class="newbtn"><%=link_to "Add Visitor", new_location_visit_path(l), class: "small" %></div>
+                            <div class="newbtn"><%=link_to "Add Visitor", new_location_visit_path(l), class: "small visitor" %></div>
 
                     <% end %>
                     <br />

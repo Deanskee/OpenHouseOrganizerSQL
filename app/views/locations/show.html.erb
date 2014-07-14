@@ -1,23 +1,31 @@
 <div class = "basic-container">
-<table>
+<table class="responsive">
   <thead>
     <tr>
+      <th width="90">Date</th>
       <th width="120">First Name</th>
       <th width="150">Last Name</th>
-      <th width="150">Email</th>
+      <th width="10">Email</th>
       <th width="150">Phone Number</th>
+      <th width="100"></th>
+      <th width="100"></th>
     </tr>
   </thead>
   <tbody>
-  	<% @location.visitors.each do |v| %>
+  	<% @location.visits.each do |v| %>
     <tr>
-      <td><%= v.first_name %></td>
-      <td><%= v.last_name %></td>
-      <td><%= v.email %></td>
-      <td><%= v.phone_number %></td>
+      <td><%= v.created_at.strftime("%m/%d/%Y") %> </td>
+      <td><%= v.visitor.first_name %></td>
+      <td><%= v.visitor.last_name %></td>
+      <td><%= v.visitor.email %></td>
+      <td><%= v.visitor.phone_number %></td>
+      <td class="text-center"><i class="deletebtn"><%=link_to "",location_visit_path(@location, v), method: :delete, class: "step fi-trash size-24" %></i></td>
+      <td><div class="editbtn"><%=link_to "Edit", edit_location_visit_path(@location, v), class: "small" %></div></td></div>
     </tr>
   </tbody>
   <% end %>
 </table>
 <div class="backbtn"><%=link_to "Back to Open-Houses", users_location_path(current_user), class: "small" %></div>
 </div>
+
+<i class="step fi-trash size-24"></i>

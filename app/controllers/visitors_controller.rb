@@ -8,6 +8,7 @@ class VisitorsController < ApplicationController
       @visitors = Visitor.all
     else
       @visitors = current_user.visitors
+      @visitors = Visitor.find( :all, :order => "created_at DESC")
     end
   end
 
@@ -37,9 +38,10 @@ class VisitorsController < ApplicationController
   end
 
   def update
+    @location = Location.find(params[:location_id])
     if @visitor.update(visitor_params)
       respond_to do |format|
-      format.html {redirect_to user_path(current_user)}
+      format.html {redirect_to @location }
       format.json {render nothing: true, status: :no_content}
     end
     else
@@ -50,17 +52,17 @@ class VisitorsController < ApplicationController
   end
 end
 
-  def show
-    respond_with @visitor
-  end
+    def show
+      respond_with @visitor
+    end
 
     def destroy
      @visitor.destroy
     respond_to do |format|
-    format.html {redirect_to user_path}
+    format.html {redirect_to user_path(current_user)}
     format.json {render json: :no_content}
+      end
     end
-  end
 
   protected
     def set_visitor

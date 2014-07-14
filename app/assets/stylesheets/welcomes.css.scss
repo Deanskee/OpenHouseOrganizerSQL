@@ -1,6 +1,7 @@
 // Place all the styles related to the Welcomes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .welcome_container {
    margin-top: 70px;
 }
@@ -24,14 +25,11 @@
 }
 
 #sign {
-	width:50%;
-	height:50%;
-	margin:0 auto;
-	background: url("open_house_sign.jpg");
-	background-repeat:no-repeat;
+	width:100%;
+	max-width: 400px;
 }
 
-.columns small-12 medium-6, p{
+.columns small-12 medium-6, p {
 
 }
 
@@ -43,11 +41,6 @@
 	}
 	.welcome_agents {
 		margin-top: -20px;
-		height: 480px;
-	}
-
-	#sign {
-		margin: 0-auto;
 		height: 480px;
 	}
 }

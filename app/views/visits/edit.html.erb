@@ -1,0 +1,28 @@
+<%= form_for [@location, @visit] do |f| %>
+  	<body>
+        <div class="row">
+            <div class="columns small-12 medium-6">
+                <h2><strong>edit Visitor</strong></h2>
+
+                <form role="form">
+                    <div class="form-group">
+                    <%= text_field :visitor, :first_name, :value => @visit.visitor.first_name %>
+                    </div>
+                    <div class="form-group">
+                    <%= text_field :visitor, :last_name, :value => @visit.visitor.last_name %>
+                    </div>
+                    <div class="form-group">
+                    <%= email_field :visitor, :email, :value => @visit.visitor.email %>
+                    </div>
+                    <div class="form-group">
+                    <%= text_field :visitor, :phone_number, :value => @visit.visitor.phone_number %>
+                    </div>
+                     <br>
+                    <div class="form-group">    
+                    <%= f.submit "Submit", class: "tiny button" %>
+                    </div>
+                </form>
+            </div>
+        </div>
+   	</body>
+<% end %>
