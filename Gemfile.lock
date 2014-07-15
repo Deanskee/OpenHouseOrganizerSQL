@@ -33,6 +33,7 @@ GEM
       nokogiri (>= 1.4.4)
     bcrypt (3.1.7)
     builder (3.2.2)
+    cancancan (1.8.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -191,6 +192,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   bcrypt (~> 3.1.7)
+  cancancan (~> 1.8)
   coffee-rails (~> 4.0.0)
   figaro
   foundation-rails

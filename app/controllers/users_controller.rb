@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
    before_action :set_user, :only => [:show, :edit, :update, :destroy]
    before_action :login_required, :except => [:new, :create]
-   before_action :authorize_user, :only => [:show, :edit, :update, :destroy]
+  # load_and_authorize_resource :except => [:new, :create]
    respond_to :json, :html
   def index
     @users = User.all
