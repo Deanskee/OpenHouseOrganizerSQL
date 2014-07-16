@@ -28,7 +28,9 @@
 p, a, h3 {
 	font-family: 'Abril Fatface', sans-serif;
 }
-
+.no-pad{
+	padding: 0 !important;
+}
 .accordion dd > a {
 	font-size: 18px;
 	font-family: 'Abril Fatface', sans-serif;
@@ -41,6 +43,14 @@ p, a, h3 {
       }
 
        .size-24 { font-size: 24px; }
+
+.top-bar {
+	background:#006600;
+}
+
+ul.dropdown {
+	background:#006600;
+}
 
 /*.basic-container, table {
 	margin: 0 auto;

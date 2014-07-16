@@ -38,7 +38,6 @@ class VisitsController < ApplicationController
   end
 
   def update
-   
     @visit = Visit.find(params[:id])
     @location = Location.find(params[:location_id])
     if @visit.visitor.update_attributes(visitor_params)
@@ -68,6 +67,6 @@ end
 
 protected
     def visitor_params
-      params.require(:visitor).permit(:first_name, :last_name, :email, :phone_number)
+      params.require(:visitor).permit(:id, :first_name, :last_name, :email, :phone_number)
     end
 end

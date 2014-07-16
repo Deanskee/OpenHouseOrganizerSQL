@@ -1,8 +1,43 @@
 <div class = "basic-container">
-<table class="responsive">
+  <div class="row">
+  <% @visits.each do |day| %>
+    <h4 class=""><%= day[0].to_formatted_s(:rfc822) %> - <%= day[1].count%> visitors</h4>
+    <div class="day-list panel">
+      <% day[1].each_with_index do |v,index| %>
+        <div class="row visitor-row">
+          <div class="columns small-1 show-for-small-only"><%= index + 1 %>) </div>
+          <div class="columns small-2 show-for-small-only"> <%= v.created_at.strftime("%I:%M") %> </div>
+          <div class="columns small-9 medium-12">
+          <div class="columns medium-1 hide-for-small-only"><%= index + 1 %>) </div>
+          <div class="columns medium-1 hide-for-small-only"><%= v.created_at.strftime("%I:%M") %> </div>
+          <div class="columns small-12 medium-4 large-2"><%= v.visitor.first_name %> <%= v.visitor.last_name %></div>
+          
+
+          <div class="columns small-12 medium-4 large-3">
+            <%= mail_to v.visitor.email, v.visitor.email %>
+          </div>
+          <div class="columns medium-2 show-for-medium-only"><i class="deletebtn"><%=link_to "",location_visit_path(@location, v), method: :delete, class: "fi-trash size-24" %></i> &nbsp; <%=link_to "Edit", edit_location_visit_path(@location, v) %></div>
+
+
+
+          <div class="columns small-12 medium-5 medium-offset-6 large-offset-0 large-2"><%= v.visitor.phone_number %></div>
+
+
+
+
+
+          <div class="columns small-12 medium-2 hide-for-medium-only"><i class="deletebtn"><%=link_to "",location_visit_path(@location, v), method: :delete, class: "fi-trash size-24" %></i> &nbsp; <%=link_to "Edit", edit_location_visit_path(@location, v) %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<!-- <table class="responsive">
   <thead>
     <tr>
-      <th width="90">Date</th>
+      <th width="100">Date</th>
       <th width="120">First Name</th>
       <th width="150">Last Name</th>
       <th width="10">Email</th>
@@ -12,18 +47,29 @@
     </tr>
   </thead>
   <tbody>
-  	<% @location.visits.each do |v| %>
+  	<%# @visits.each do |day| %>
+    <tr class="day-header">
+      <th class="day"><%#= day[0].to_formatted_s(:rfc822) %> </th>
+      <th width="120">First Name</th>
+      <th width="150">Last Name</th>
+      <th width="10">Email</th>
+      <th width="150">Phone Number</th>
+      <th width="100"></th>
+      <th width="100"></th>
+    </tr>
+    <%# day[1].each do |v| %>
     <tr>
-      <td><%= v.created_at.strftime("%m/%d/%Y") %> </td>
-      <td><%= v.visitor.first_name %></td>
-      <td><%= v.visitor.last_name %></td>
-      <td><%= v.visitor.email %></td>
-      <td><%= v.visitor.phone_number %></td>
-      <td class="text-center"><i class="deletebtn"><%=link_to "",location_visit_path(@location, v), method: :delete, class: "step fi-trash size-24" %></i></td>
-      <td><div class="editbtn"><%=link_to "Edit", edit_location_visit_path(@location, v), class: "small" %></div></td></div>
+      <td><%#= v.created_at.strftime("%I:%M") %> </td>
+      <td><%#= v.visitor.first_name %></td>
+      <td><%#= v.visitor.last_name %></td>
+      <td><%#= v.visitor.email %></td>
+      <td><%#= v.visitor.phone_number %></td>
+      <td class="text-center"><i class="deletebtn"><%#=link_to "",location_visit_path(@location, v), method: :delete, class: "step fi-trash size-24" %></i></td>
+      <td><div class="editbtn"><%#=link_to "Edit", edit_location_visit_path(@location, v), class: "small" %></div></td></div>
     </tr>
   </tbody>
-  <% end %>
-</table>
+  <%# end %>
+  <%# end %>
+</table> -->
 <div class="backbtn"><%=link_to "Back to Open-Houses", users_location_path(current_user), class: "small" %></div>
 </div>

@@ -9,8 +9,10 @@ class VisitorsController < ApplicationController
     else
       @visitors = current_user.visitors
       @visitors = Visitor.find( :all, :order => "created_at DESC")
+      @visitors = @visitors.group_by(&:created_at.to_date.to_s(:db)).map{|k,v| [k,v.length]}.sort
     end
   end
+
 
   def new
     @visitor = Visitor.new
@@ -70,7 +72,7 @@ end
     end
 
     def visitor_params
-      params.require(:visitor).permit(:first_name, :last_name, :email, :phone_number)
+      params.require(:visitor).permit(:id, :first_name, :last_name, :email, :phone_number)
     end
 
 end

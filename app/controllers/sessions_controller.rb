@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     session_create
     redirect_to user_path(current_user)
     else
-    @user = User.where(email: params[:session][:email]).first
+    @user = User.where(email: params[:session][:email].downcase).first
 
     if @user && @user.authenticate(params[:session][:password])
       session_create

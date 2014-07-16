@@ -24,9 +24,33 @@
 			margin-left: 14.5%;
 		}
 }
+.day-list{
+	.columns{
+		min-height: 1px;
+	}
+}
+.visitor-row{
+	padding-bottom: 10px;
+	line-height: 20px;
+	&:nth-child(odd){
+	}
+}
+.accordion .content.active{
+	background: none;
+}
+.tabs dd.active a{
+	background-color: lighten(#006600, 7%);
+	border-radius: 3px;
+}
 
 @media (max-width: 480px) {
 
+	.visitor-row{
+		padding-bottom: 15px;
+		line-height: 25px;
+		&:nth-child(odd){
+		}
+	}
 	.columns small-12 medium-6, p {
 	margin: 0 auto;
 	}
