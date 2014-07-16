@@ -55,7 +55,13 @@ ul.dropdown {
 .top-bar-section li:not(.has-form) a:not(.button) {
 	background: #006600;
 }
+.title-area a {
+	background: #006600;
+}
 
+.toggle-topbar menu-icon a{
+	background: #006600;
+}
 /*.basic-container, table {
 	margin: 0 auto;
 }*/
