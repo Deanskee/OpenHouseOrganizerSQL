@@ -18,11 +18,11 @@ class User < ActiveRecord::Base
 	# validates :first_name, on: :create, if: "name.nil?"
 	# validates :last_name, presence: true
 	# validates_length_of :phone_number, minimum: 10, maximum: 10
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :email, presence: true
 	validates_uniqueness_of :email
 	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :storage => :s3, :default_url => "missing_profile.png"
  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-  
   	validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create, if: "name.nil?"
   	
 	def full_name

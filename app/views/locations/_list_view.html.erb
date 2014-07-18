@@ -19,7 +19,7 @@
           <div class="columns small-12 medium-4 ">
             <%= mail_to v.visitor.email, v.visitor.email %>
           </div>
-          <div class="columns medium-2"><i class="deletebtn"><%=link_to "",location_visit_path(location, v), method: :delete, class: "fi-trash size-24" %></i> &nbsp; <%=link_to "Edit", edit_location_visit_path(location, v) %></div>
+          <div class="columns medium-2"><i class="deletebtn"><%=link_to "",location_visit_path(location, v), method: :delete, class: "fi-trash size-24" %></i> &nbsp; <%=link_to "", edit_location_visit_path(location, v), class: "fi-pencil size-24" %></div>
 
 
 

@@ -4,6 +4,8 @@
         <div id="profile-photo" class="small-only-text-center">
         	<% if @user.avatar_file_name %>
         		<%= image_tag @user.avatar_url(:medium) %><br /><br />
+            <% else %>
+                <%= image_tag 'missing_profile_image.jpg'%>
         	<% end %>
         </div>
 

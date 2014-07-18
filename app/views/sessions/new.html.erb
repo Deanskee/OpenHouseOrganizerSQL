@@ -3,9 +3,9 @@
 
 <%= form_for :session, :url => sessions_path do |f| %>
 
-    <span class="title">Email: </span><%= f.text_field :email %>
+    <span class="title">Email: </span><%= f.text_field :email, :placeholder => "Email" %>
 
-    <span class="title">Password: </span><%= f.password_field :password %>
+    <span class="title">Password: </span><%= f.password_field :password, :placeholder => "Password" %>
 
   <%= f.submit "Log in", class: "small button" %>
 <% end %>

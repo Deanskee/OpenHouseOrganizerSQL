@@ -27,6 +27,7 @@
 .day-list{
 	.columns{
 		min-height: 1px;
+		font-family: helvetica;
 	}
 }
 .visitor-row{
@@ -35,12 +36,58 @@
 	&:nth-child(odd){
 	}
 }
+
+.panel {
+	border-width:0;
+
+}
+
+.panel.callout {
+	border-color:#E0E0E0;
+	background: #E0E0E0;
+}
 .accordion .content.active{
 	background: none;
 }
+
+.accordion a {
+	// background: #efefef;
+}
+
+.accordion dd.active > a {
+	background: #a8a8a8;
+}
+
+.accordion dd > a:hover {
+	background:#a8a8a8;
+	// border:2px solid #E0E0E0;
+}
+
+.accordion dd > a {
+	background:#E0E0E0;
+}
+.accordion a:hover {
+	// box-shadow: 0px 0px 10px #333333;
+}
 .tabs dd.active a{
-	background-color: lighten(#006600, 7%);
+	background: #a8a8a8;
 	border-radius: 3px;
+}
+
+.tabs a:hover {
+	background: #D3D3D3;
+	// opacity: .10;
+	box-shadow: 0px 0px 10px #333333;
+}
+
+.button {
+	background: #37c77f;
+	border-radius:3px;
+}
+
+.button:hover{
+	background:#37c77f;
+	border-radius:6px;
 }
 
 @media (max-width: 480px) {

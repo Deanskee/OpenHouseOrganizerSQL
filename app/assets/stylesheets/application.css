@@ -21,6 +21,7 @@
 	width: 46px;
 }
 
+
 .title {
 	font-size: 20px;
 }
@@ -59,7 +60,7 @@ ul.dropdown {
 	background: #006600;
 }
 
-.toggle-topbar menu-icon a{
+.toggle-topbar menu-icon {
 	background: #006600;
 }
 /*.basic-container, table {
