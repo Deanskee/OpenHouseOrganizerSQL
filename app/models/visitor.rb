@@ -6,6 +6,12 @@ class Visitor < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   	validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
-end
+  	def capital_first_name
+  		first_name.titleize
+  	end
 
-# Client.order(created_at: :desc)
+  	def capital_last_name
+  		last_name.titleize
+  	end
+
+end

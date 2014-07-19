@@ -1,6 +1,6 @@
 class VisitsController < ApplicationController
      before_action :authenticate_user, :only => [:new, :create, :edit, :update, :destroy]
-     # before_action :set_visit, :only => [:show, :edit, :update, :destroy]
+     before_action :set_visit, :only => [:show, :edit, :update, :destroy]
      respond_to :json, :html
   def new
   	@visit = Visit.new
