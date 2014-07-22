@@ -1,6 +1,7 @@
 <%= form_for [@location, @visit] do |f| %>
     <body>
         <div class="row">
+            <!-- something wrong with adding visitor sizes -->
             <div class="columns small-12 medium-6">
                 <h2><strong>Add Visitor</strong></h2>
 
@@ -17,7 +18,10 @@
                     <div class="form-group">
                     <%= telephone_field :visitor, :phone_number, :placeholder => "Phone-Number" %>
                     </div>
-                     <br>
+                     <div class="form-group">
+                     <%= text_field :visitor, :note, :placeholder => "Notes" %>
+                    </div>
+                    <br>
                     <div class="form-group">    
                     <%= f.submit "Submit", class: "tiny button" %>
                     </div>

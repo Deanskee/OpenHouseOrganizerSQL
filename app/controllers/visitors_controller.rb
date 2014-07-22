@@ -72,7 +72,7 @@ end
     end
 
     def visitor_params
-      params.require(:visitor).permit(:id, :first_name, :last_name, :email, :phone_number)
+      params.require(:visitor).permit(:id, :first_name, :last_name, :email, :phone_number, :note)
     end
 
 end

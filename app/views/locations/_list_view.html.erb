@@ -13,7 +13,7 @@
           <div class="columns small-8 medium-12 no-pad">
           <div class="columns medium-1 hide-for-small-only"><%= index + 1 %>) </div>
           <div class="columns medium-2 hide-for-small-only"><%= v.created_at.strftime("%I:%M") %> </div>
-          <div class="columns small-12 medium-3 "><%= v.visitor.first_name %> <%= v.visitor.last_name %></div>
+          <div class="columns small-12 medium-3 "><%= v.visitor.first_name.titleize %> <%= v.visitor.last_name.titleize %></div>
           
 
           <div class="columns small-12 medium-4 ">

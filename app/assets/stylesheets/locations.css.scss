@@ -9,8 +9,12 @@
 	border: 2px solid black;
 }
 
-.backbtn, .small {
-	margin: 0 auto;
+// .backbtn, .small {
+// 	margin: 0 auto;
+// }
+
+a {
+
 }
 
 .columns small-12 medium-6, p {
@@ -20,9 +24,9 @@
 
 .basic-container, table {
 	margin: 0 auto;
-		.backbtn, .small {
-			margin-left: 14.5%;
-		}
+		// .backbtn, .small {
+		// 	margin-left: 14.5%;
+		// }
 }
 .day-list{
 	.columns{
@@ -56,6 +60,7 @@
 
 .accordion dd.active > a {
 	background: #a8a8a8;
+	// z-index: -1;
 }
 
 .accordion dd > a:hover {
@@ -92,6 +97,8 @@
 
 @media (max-width: 480px) {
 
+
+
 	.visitor-row{
 		padding-bottom: 15px;
 		line-height: 25px;
@@ -106,4 +113,74 @@
 				margin-left: 1%;
 			}
 		}
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 930px) {
+	.backbtn1 a {
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 1080px) {
+	.backbtn_1 a {
+		margin-left:10%;
+	}
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1277px) {
+	.backbtn_1 a {
+		margin-left: 14%;
+	}
+}
+
+@media (min-width: 1280px) {
+	.backbtn_1 a {
+		margin-left: 10%;
+	}
+	h3.addhome {
+	margin-left: 11%;
+	}
+}
+
+@media (min-width: 1366px) {
+	.backbtn_1 a, h3.addhome {
+		margin-left: 13%;
+	}
+
+}
+@media (min-width: 1680px) {
+	.backbtn_1 a, h3.addhome {
+		margin-left: 20%;
+	}
+}
+
+@media (min-width: 1700px) {
+	.backbtn_1 a {
+		margin-left: 21%;
+	}
+}
+
+@media (min-width: 1820px) {
+		.backbtn_1 a {
+		margin-left: 22.5%;
+	}
+}
+
+
+@media (min-width: 2000px) {
+		.backbtn_1 a {
+		margin-left: 24.5%;
+	}
+}
+@media (min-width: 2380px) {
+		.backbtn_1 a {
+		margin-left: 28.5%;
+	}
+}
+@media (min-width: 2554px) {
+		.backbtn_1 a {
+		margin-left: 30.5%;
+	}
 }

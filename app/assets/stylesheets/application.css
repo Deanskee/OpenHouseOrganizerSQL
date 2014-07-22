@@ -63,13 +63,8 @@ ul.dropdown {
 .toggle-topbar menu-icon {
 	background: #006600;
 }
-/*.basic-container, table {
-	margin: 0 auto;
-}*/
 
-/*
-@media (max-width: 480px) {}*/
-/* Mobile */
+/* Mobile for table feature */
 @media only screen and (max-width: 767px) {
 	
 	table.responsive { margin-bottom: 0; }

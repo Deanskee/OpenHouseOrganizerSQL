@@ -1,3 +1,68 @@
 // Place all the styles related to the visits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media (min-width: 768px) {
+	.backbtn2 a {
+		margin-left: 10%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.backbtn2 a {
+		margin-left: 10%;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1255px) {
+	.backbtn_2 a {
+		margin-left: 11%;
+	}
+}
+
+@media (min-width: 1280px) {
+	.backbtn_2 a {
+		margin-left: 11.5%;
+	}
+}
+
+@media (min-width: 1365px) {
+	.backbtn_2 a {
+		margin-left: 14%;
+	}
+
+}
+@media (min-width: 1680px) {
+	.backbtn_2 a {
+		margin-left: 21%;
+	}
+}
+
+@media (min-width: 1700px) {
+	.backbtn_2 a {
+		margin-left: 21%;
+	}
+}
+
+@media (min-width: 1820px) {
+		.backbtn_2 a {
+		margin-left: 22.5%;
+	}
+}
+@media (min-width: 2000px) {
+		.backbtn_2 a {
+		margin-left: 24.5%;
+	}
+}
+@media (min-width: 2380px) {
+		.backbtn_2 a {
+		margin-left: 28.5%;
+	}
+}
+@media (min-width: 2554px) {
+		.backbtn_2 a {
+		margin-left: 31%;
+	}
+}

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	# validates :last_name, presence: true
 	# validates_length_of :phone_number, minimum: 10, maximum: 10
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates :email, presence: true
+	# validates :email, presence: true
 	validates_uniqueness_of :email
 	has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :storage => :s3, :default_url => "missing_profile.png"
  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/

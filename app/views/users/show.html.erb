@@ -11,9 +11,9 @@
 
     	<div id="profile-info">
             <h3> User Profile </h3>
-            <p><span class="title">First Name: </span><%= @user.first_name %></p>
+            <p><span class="title">First Name: </span><%= @user.first_name.titleize %></p>
 
-            <p><span class="title">Last Name: </span><%= @user.last_name %></p>
+            <p><span class="title">Last Name: </span><%= @user.last_name.titleize %></p>
 
             <p><span class="title">Email: </span><%= @user.email %></p>
 

@@ -3,23 +3,24 @@
           src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=true">
   </script>
 
-  <h3> Open Houses <%=link_to "Add", new_location_path(current_user), class: "tiny button addbtn" %></h3>
+  <h3 class="addhome"> Open Houses <%=link_to "Add", new_location_path(current_user), class: "tiny button addbtn" %></h3>
         <dl class="accordion row panel" data-accordion>
             <% @locations.each_with_index do |l,index| %>
               <dd class="accordion-navigation">
                 <a href="#panel<%=index%>" class="OpenHouseInfo columns small-12">
                     <div class="columns small-12 medium-4 left">
-                        <%= l.address %>
+                        <%= l.address.titleize %>
                     </div>
                     <div class="columns small-12 medium-4 left">
-                        <%= l.city %>, <%= l.state.upcase %>, <%= l.zip_code %>
+                        <%= l.city.titleize %>, <%= l.state.upcase %>, <%= l.zip_code %>
                     </div>
                     <div class="columns small-12 medium-4 left">
-                        <%= l.visitors.count %> - Visitors
+                        <%= link_to l.visitors.count,location_path(l) %> - Visitors
+                        &nbsp;&nbsp;<%=link_to "", location_path(l), class: "fi-magnifying-glass size-24" %>
                     </div>
                 </a>
                 <% if index == 0 %>
-                    <div id="panel<%=index%>" class=" active content columns small-12"> 
+                    <div id="panel<%=index%>" class="active content columns small-12">    
                 <% else %>
                     <div id="panel<%=index%>" class="content columns small-12"> 
                 <% end%>
@@ -41,14 +42,14 @@
                         <div class="columns small-12 medium-6">
                             <p>
                                 <span class="title"> Owner: </span> 
-                                <%= l.owner %>
+                                <%= l.owner.titleize %>
                             </p>
                             <p>
                                 <span class="title"> Address: </span> 
                                 <br>
-                                <%= l.address %> 
+                                <%= l.address.titleize %> 
                                 <br>
-                                <%= l.city %>, <%= l.state %>, <%= l.zip_code %> 
+                                <%= l.city.titleize %>, <%= l.state.upcase %>, <%= l.zip_code %> 
                                 <% if current_user == l.user %>
                                     &nbsp;&nbsp;&nbsp;<%=link_to "edit", edit_location_path(l) %>
                                 <% end %>
@@ -80,68 +81,68 @@
          <% end %>
     </dl>
        
-
+<!-- Thinking of incorporating GoogleMaps API but not now-->
 <!-- <div id="map_canvas" class= "small-5 columns"></div>
  -->
 <script type="text/javascript">
     
-    var map;
-    var service;
-    function handleSearchResults(results, status)
-    {
-        console.log(results);
+//     var map;
+//     var service;
+//     function handleSearchResults(results, status)
+//     {
+//         console.log(results);
 
-        for(var i = 0; i < results.length; i++) {
+//         for(var i = 0; i < results.length; i++) {
 
-            var marker = new google.maps.Marker({
-            position: results[i].geometry.location,
-            map: map, 
-            icon: results[i].icon //change here if you want to input custom pic of marker
-            });
-        }
-    }
+//             var marker = new google.maps.Marker({
+//             position: results[i].geometry.location,
+//             map: map, 
+//             icon: results[i].icon //change here if you want to input custom pic of marker
+//             });
+//         }
+//     }
 
-    function performSearch()
-    {   
-        var request = {
-            bounds: map.getBounds(), //restricts location search to whatever is in the view of map
-            street_address: ""
-        }
-        service.nearbySearch(request, handleSearchResults);
-    }
-    function initialise(location)
-    {
-        console.log(location);
+//     function performSearch()
+//     {   
+//         var request = {
+//             bounds: map.getBounds(), //restricts location search to whatever is in the view of map
+//             street_address: ""
+//         }
+//         service.nearbySearch(request, handleSearchResults);
+//     }
+//     function initialise(location)
+//     {
+//         console.log(location);
 
-        var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
-        // var myLatLng = new google.maps.LatLng(<%# location.latitude%>, <%# location.longitude%>);
+//         var currentLocation = new google.maps.LatLng(location.coords.latitude, location.coords.longitude);
+//         // var myLatLng = new google.maps.LatLng(<%# location.latitude%>, <%# location.longitude%>);
 
-        var mapOptions = {
-            center: currentLocation,
-            zoom: 9,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+//         var mapOptions = {
+//             center: currentLocation,
+//             zoom: 9,
+//             mapTypeId: google.maps.MapTypeId.ROADMAP
+//         };
 
-        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+//         map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-        var marker = new google.maps.Marker({
-            position: currentLocation,
-            map: map
-        });
+//         var marker = new google.maps.Marker({
+//             position: currentLocation,
+//             map: map
+//         });
 
-        service = new google.maps.places.PlacesService(map);
+//         service = new google.maps.places.PlacesService(map);
         
-        //this ensures we wait until the map bounds are initialised before we perform the search
-        //waits until the bounds exist before it starts to search. 
-        google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
+//         //this ensures we wait until the map bounds are initialised before we perform the search
+//         //waits until the bounds exist before it starts to search. 
+//         google.maps.event.addListenerOnce(map, 'bounds_changed', performSearch);
 
-    }
+//     }
 
-    $(document).ready(function()
-    {
-        navigator.geolocation.getCurrentPosition(initialise);
-    });
-</script>
+//     $(document).ready(function()
+//     {
+//         navigator.geolocation.getCurrentPosition(initialise);
+//     });
+// </script>
 
 <!-- function initialize() {
  

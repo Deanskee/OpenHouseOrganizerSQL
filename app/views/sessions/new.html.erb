@@ -1,14 +1,19 @@
-<div class = "basic-container">
-	<h1>Log In</h1>
+<body>
+	<div class = "basic-container">
+		<div class="row">
+			<div class="columns small-12 medium-6">
+						<h1>Log In</h1>
+				<%= form_for :session, :url => sessions_path do |f| %>
 
-<%= form_for :session, :url => sessions_path do |f| %>
+			    <span class="title">Email: </span><%= f.text_field :email, :placeholder => "Email" %>
 
-    <span class="title">Email: </span><%= f.text_field :email, :placeholder => "Email" %>
+			    <span class="title">Password: </span><%= f.password_field :password, :placeholder => "Password" %>
 
-    <span class="title">Password: </span><%= f.password_field :password, :placeholder => "Password" %>
-
-  <%= f.submit "Log in", class: "small button" %>
-<% end %>
-</div>
+			  	<%= f.submit "Log in", class: "small button" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</body>
 
 
