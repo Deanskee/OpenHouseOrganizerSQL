@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
  get 'visits/create'
  get '/users/:id/locations' => 'locations#index', :as => 'users_location'
+ get '/users/:id/locations/export' => 'locations#export', :as => 'export_location'
  resources :users
  resources :locations do 
     resources :visits 

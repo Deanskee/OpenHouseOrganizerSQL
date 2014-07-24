@@ -19,7 +19,7 @@ class VisitsController < ApplicationController
         @visit = Visit.create(location_id: params[:location_id], visitor_id: @visitor.id)
         respond_to do |format|
 	        flash[:success] = "visit successfully created"
-	        format.html {redirect_to user_path(current_user)}
+	        format.html {redirect_to location_path(:id => params[:location_id])}
 	        format.json { render json: @visit, status: :created}
 	      end
       else
@@ -58,8 +58,7 @@ end
      @visit.destroy
      @location = Location.find(params[:location_id])
       respond_to do |format|
-      format.html {redirect_to @location }
-      
+      format.html {redirect_to @location}
       format.json {render json: :no_content}
       end
     end

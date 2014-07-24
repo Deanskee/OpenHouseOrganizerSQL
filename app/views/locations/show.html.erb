@@ -2,6 +2,7 @@
   <div class="row">
   <% @visits.each do |day| %>
     <h4 class=""><%= day[0].to_formatted_s(:rfc822) %> - <%= day[1].count%> visitors</h4>
+    <%= link_to "export", location_path(@location, :format => :xls)%>
     <div class="day-list panel">
       <% day[1].each_with_index do |v,index| %>
         <div class="row visitor-row">
@@ -10,17 +11,31 @@
           <div class="columns small-9 medium-12">
           <div class="columns medium-1 hide-for-small-only"><%= index + 1 %>) </div>
           <div class="columns medium-1 hide-for-small-only"><%= v.created_at.strftime("%I:%M") %> </div>
-          <div class="columns small-12 medium-4 large-2"><%= link_to v.visitor.first_name.titleize, location_visit_path(@location, v) %> <%= v.visitor.last_name.titleize %></div>
+          <div class="columns small-12 medium-4 large-2">
+            <%= link_to location_visit_path(@location, v) do %>
+              <%= v.visitor.first_name.titleize %> <%= v.visitor.last_name.titleize %>
+            <% end %>
+           </div>
           
 
           <div class="columns small-12 medium-4 large-3">
-            <%= mail_to v.visitor.email, v.visitor.email %>
+            <% if v.visitor.email %>
+              <%= mail_to v.visitor.email, v.visitor.email %>
+            <% else %>
+              <%=link_to "Add Email", edit_location_visit_path(@location, v) %>
+            <% end %>
           </div>
           <div class="columns medium-2 show-for-medium-only"><i class="deletebtn"><%=link_to "",location_visit_path(@location, v), method: :delete, class: "fi-trash size-24" %></i> &nbsp; <%=link_to "", edit_location_visit_path(@location, v), class: "fi-pencil size-24" %></div>
 
 
 
-          <div class="columns small-12 medium-5 medium-offset-6 large-offset-0 large-2"><%= v.visitor.phone_number %></div>
+          <div class="columns small-12 medium-5 medium-offset-6 large-offset-0 large-2">
+            <% if v.visitor.phone_number %>
+              <%= number_to_phone(v.visitor.phone_number) %>
+            <% else %>
+              <%=link_to "Add Phone", edit_location_visit_path(@location, v) %>
+            <% end %>
+          </div>
 
 
 
@@ -33,7 +48,6 @@
     </div>
   <% end %>
 </div>
-
 <!-- <table class="responsive">
   <thead>
     <tr>

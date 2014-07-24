@@ -14,4 +14,8 @@ class Visitor < ActiveRecord::Base
   		last_name.titleize
   	end
 
+    def display_time
+      self.created_at.strftime("%I:%M")
+    end
+
 end

@@ -1,30 +1,32 @@
   <div class="row">
+    <!-- cycles through each visitor submited and organizes it appropriately -->
   <% visits.each do |day| %>
     <h4 class="day-title small-only-text-center"><%= day[0].to_formatted_s(:rfc822) %> - <%= day[1].count%> visitors</h4>
     <div class="day-list panel callout radius ">
+      <!-- then this below cycles through and counts each visitor and displays their time -->
       <% day[1].each_with_index do |v,index| %>
         <div class="row visitor-row">
         	<div class="columns small-4 show-for-small-only">
           		<div class="columns small-4 no-pad"><%= index + 1 %>) </div>
           		<div class="columns small-8 no-pad"> <%= v.created_at.strftime("%I:%M") %> </div>
           	</div>
-
-
+<!-- ------------------------------------ -->
+          <!-- when visitor is added this shows the visitor starts at 1 and ^, time submited etc..  -->
           <div class="columns small-8 medium-12 no-pad">
-          <div class="columns medium-1 hide-for-small-only"><%= index + 1 %>) </div>
+          <div class="columns medium-1 hide-for-small-only"><%= index + 1 %> </div>
           <div class="columns medium-2 hide-for-small-only"><%= v.created_at.strftime("%I:%M") %> </div>
           <div class="columns small-12 medium-3 "><%= v.visitor.first_name.titleize %> <%= v.visitor.last_name.titleize %></div>
           
-
+          <!-- email href -->
           <div class="columns small-12 medium-4 ">
             <%= mail_to v.visitor.email, v.visitor.email %>
           </div>
           <div class="columns medium-2"><i class="deletebtn"><%=link_to "",location_visit_path(location, v), method: :delete, class: "fi-trash size-24" %></i> &nbsp; <%=link_to "", edit_location_visit_path(location, v), class: "fi-pencil size-24" %></div>
 
 
-
-          <div class="columns small-12 medium-5 medium-offset-6 left"><%= v.visitor.phone_number %></div>
-
+          <!-- number to phone -->
+          <div class="columns small-12 medium-5 medium-offset-6 left"><%= number_to_phone(v.visitor.phone_number)%></div>
+      
 
 
 

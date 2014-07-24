@@ -1,2 +1,15 @@
+<div class="row">
+	<div class="panel">
+		<h5><%= @visit.visitor.first_name.titleize %> <%= @visit.visitor.last_name.titleize %></h5>
+		<h5>
+			<%= @visit.location.address.titleize %><br>
+			<%= @visit.location.city %>
+			<%= @visit.location.state %>
+			<%= @visit.location.zip_code %>
+		</h5>
+	</div>
 
-<h1>notes</h1>
+	<div class="panel">
+		<%= @visit.visitor.note ? @visit.visitor.note : "A note was not left for this visitor" %>
+	</div>
+</div>

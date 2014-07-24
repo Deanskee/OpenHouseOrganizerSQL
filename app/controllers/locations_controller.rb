@@ -47,25 +47,44 @@ class LocationsController < ApplicationController
       respond_to do |format|
       format.html {render 'edit'}
       format.json { render json:@location.errors, status: :unprocessable_entity}
-    end
+      end
     end
   end
 
   def show
-    @visits = @location.visits.group_by{ |x| x.created_at.to_date}
-    respond_with @location
-      # respond_to do |format|
-      # format.html
-      # format.csv { render text: @visits.to_csv }
-      # end
+    respond_to do |format|
+      format.html { 
+        @visits = @location.visits.group_by{ |x| x.created_at.to_date}
+        respond_with @location 
+      }
+      format.xls { 
+        @visitors = @location.visitors.order(:created_at)
+        @visitors.each do |v|
+          v.created_at = v.created_at.strftime("%I:%M")
+        end
+        send_data(@visitors.to_xls(
+                                :prepend => [[@location.owner,@location.user.phone_number],
+                                             [@location.user.agency],
+                                             [@location.address],
+                                             []],
+                                :except => [:id,:updated_at])) 
+      }
+    end
+  end
+# To send all data stored as a excel document
+  def export
+      respond_to do |format|
+        format.html
+        format.csv { render text: @locations.to_csv }
+      end
   end
 
   def destroy
-     @location.destroy
+    @location.destroy
     respond_to do |format|
-    format.html {redirect_to user_path}
-    format.json {render json: :no_content}
-  end
+    format.html {redirect_to user_path, notice: 'Location was successfully removed.'}
+    format.json {render json: :no_content }
+    end
   end
 
   protected

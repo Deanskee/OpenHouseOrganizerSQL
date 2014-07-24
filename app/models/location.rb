@@ -11,17 +11,15 @@ class Location < ActiveRecord::Base
 
 	# def self.to_csv
  #      CSV.generate do |csv|
- #       csv << column_first_name
- #       all.each do |location|
- #       csv << location.attributes.values_at(*column_first_name)
+ #       	csv << column_owners
+ #       	all.each do |location|
+ #       		csv << location.attributes.values_at(*column_owners)
  #        end
  #      end
  #    end
 
-
-
 	def picture_url(size)
-    self.picture.url(size)
+    	self.picture.url(size)
   	end
 
   	# def address

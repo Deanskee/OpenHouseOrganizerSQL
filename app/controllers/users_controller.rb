@@ -47,7 +47,7 @@ class UsersController < ApplicationController
      end
      else
       respond_to do |format|
-      format.html {redirect_to edit_user_path}
+      format.html {redirect_to edit_user_path, notice: 'User was successfully edited.'}
       format.json { render json:@user.errors, status: :unprocessable_entity}
      end
     end
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-    format.html {redirect_to new_user_path}
+    format.html {redirect_to new_user_path, notice: 'User was successfully destroyed.'}
     format.json {render json: :no_content}
   end
   end
