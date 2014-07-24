@@ -50,9 +50,14 @@ class LocationsController < ApplicationController
     end
     end
   end
+
   def show
     @visits = @location.visits.group_by{ |x| x.created_at.to_date}
     respond_with @location
+      # respond_to do |format|
+      # format.html
+      # format.csv { render text: @visits.to_csv }
+      # end
   end
 
   def destroy

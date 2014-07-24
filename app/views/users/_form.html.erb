@@ -1,26 +1,28 @@
-<div class = "basic-container">
-    <div class="row">
-           <!--  <div class="small-6  small-offset-3 columns"> -->
-        <div class="columns small-12 medium-6">
-                <%= form_for @user do |f| %>
-                    <form role="form">
-                        <div class="form-group">
-                            <span class="title">First Name: </span><%= f.text_field :first_name, :placeholder => " First Name" %>
-                        </div>
-                        <div class="form-group">
-                            <span class="title">Last Name: </span><%= f.text_field :last_name, :placeholder => "Last Name" %>
-                        </div>
-                        <div class="form-group"><span class="title">Email: </span><%= f.email_field :email, :placeholder => "Email" %>
-                        </div>
-                        <div class="form-group"><span class="title">Password: </span><%= f.password_field :password, :placeholder => " Password"  %>
-                        </div>
-                        <div class="form-group"><span class="title">Agency: </span><%= f.text_field :agency, :placeholder => "Agency" %>
-                        </div>
-                        <span class="title">Avatar: </span><%= f.file_field :avatar %>
-                        <br>
-                            <%= f.submit "Submit", class: "tiny button" %>
-                    </form>
+<div class = "user-container">
+    <div class="user-form">
+        <div class="row">
+               <!--  <div class="small-6  small-offset-3 columns"> -->
+            <div class="columns small-12 medium-6">
+                    <%= form_for @user do |f| %>
+                        <form role="form">
+                            <div class="form-group">
+                                <span class="title">First Name: </span><%= f.text_field :first_name, :placeholder => " First Name" %>
+                            </div>
+                            <div class="form-group">
+                                <span class="title">Last Name: </span><%= f.text_field :last_name, :placeholder => "Last Name" %>
+                            </div>
+                            <div class="form-group"><span class="title">Email: </span><%= f.email_field :email, :placeholder => "Email" %>
+                            </div>
+                            <div class="form-group"><span class="title">Password: </span><%= f.password_field :password, :placeholder => " Password"  %>
+                            </div>
+                            <div class="form-group"><span class="title">Agency: </span><%= f.text_field :agency, :placeholder => "Agency" %>
+                            </div>
+                            <span class="title">Avatar: </span><%= f.file_field :avatar %>
+                            <br>
+                                <%= f.submit "Submit", class: "tiny button" %>
+                        </form>
+            </div>
         </div>
     </div>
 </div>
-                <% end %>
+                    <% end %>

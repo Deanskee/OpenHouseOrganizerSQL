@@ -34,20 +34,20 @@
                   <li class="has-dropdown">
                     <a href="#">Welcome <strong><%= current_user.full_name%></strong>! </a>
                     <ul class="dropdown"> 
-                      <li><%=link_to "Home", root_path %></li>
-                      <li><%=link_to "My Profile", user_path(current_user)%></li>
-                      <li><%=link_to "My Open Houses", users_location_path(current_user)%></li>
-                      <li><%=link_to "Edit Profile Info", edit_user_path(current_user)%></li>
+                      <li><%=link_to "Home", root_path, class: "fi-home size-24" %></li>
+                      <li><%=link_to "My Profile", user_path(current_user), class: "fi-torso-business size-24"%></li>
+                      <li><%=link_to "My Open Houses", users_location_path(current_user), class: "fi-key size-24"%></li>
+                      <li><%=link_to "Edit Profile Info", edit_user_path(current_user), class: "fi-page-edit size-24"%></li>
                       <li><%=link_to "Sign out", signout_path, id: "sign_out" %></li>
                     </ul>
                   </li>
               </ul>
                <ul class="right show-for-small-only">
-                      <li><%=link_to "Home", root_path %></li>
-                      <li><%=link_to "My Profile", user_path(current_user)%></li>
-                      <li><%=link_to "My Open Houses", users_location_path(current_user)%></li>
-                      <li><%=link_to "Edit Profile Info", edit_user_path(current_user)%></li>
-                      <li><%=link_to "Sign out", signout_path, id: "sign_out" %></li>
+                      <center><li><%=link_to "Home", root_path %></li></center>
+                      <center><li><%=link_to "My Profile", user_path(current_user)%></li></center>
+                      <center><li><%=link_to "My Open Houses", users_location_path(current_user)%></li></center>
+                      <center><li><%=link_to "Edit Profile Info", edit_user_path(current_user)%></li></center>
+                      <center><li><%=link_to "Sign out", signout_path, id: "sign_out" %></li></center>
                </ul>
                   <% else %>
                   <ul class="right">

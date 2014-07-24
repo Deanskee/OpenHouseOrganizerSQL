@@ -41,6 +41,9 @@ gem 'figaro'
 gem "paperclip", "~> 4.1"
 gem 'aws-sdk'
 
+# tracking of users crud
+gem 'public_activity'
+
 group :development, :test do
 	gem 'rspec-rails'
 	gem 'pry'

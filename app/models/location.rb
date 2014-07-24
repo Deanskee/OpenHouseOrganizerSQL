@@ -9,6 +9,17 @@ class Location < ActiveRecord::Base
 	:storage => :s3,:default_url => "/images/:style/missing.png"
   	validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
+	# def self.to_csv
+ #      CSV.generate do |csv|
+ #       csv << column_first_name
+ #       all.each do |location|
+ #       csv << location.attributes.values_at(*column_first_name)
+ #        end
+ #      end
+ #    end
+
+
+
 	def picture_url(size)
     self.picture.url(size)
   	end

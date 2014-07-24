@@ -1,6 +1,29 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .user-container {
+//    margin-top: 70px;
+// }
+
+// .user-form {
+// 	width: 100%;
+// 	height: 577px;
+// 	margin: 0 auto;
+// 	background-size: 100% 103%;
+// 	margin-top: -60px;
+// 	margin-left:217px;
+// }
+
+// .user_new_header {
+// 	font-weight: bolder;	
+// 	margin: 0 auto;
+// 	text-align: center;
+// 	font-size: 45px;
+// 	padding-top: 30px;
+// 	padding-bottom: 15px;
+// }
+
 .basic-container{
 	padding: 20px 10px;
 }
@@ -72,8 +95,119 @@ button, .button .sink{
 
 }
 
-// @media (max-width:514px) {
-// 	.name h1 a {
-// 		width:12%;
+// @media (min-width: 413px) {
+// 	 .user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+
+// 	@media (min-width: 400px) {
+// 		h1 {
+// 			margin-left: 24%;
+// 		}
 // 	}
 // }
+// @media (min-width: 464px) {
+// 	h1 {
+// 		margin-left: 34%;
+// 	}
+// }
+// @media (min-width: 465px) {
+// 	 .user-container {
+// 		width: 400px;
+// 		// margin: 0 auto;
+// 	 }
+
+// 	 h1 {
+// 	 	margin-left: 34%;
+// 	 }
+// }
+
+// @media (max-width: 480px) {
+
+// 	.user_new_header {
+// 		font-size: 22px;
+// 		padding-top: 0;
+// 	}
+// 	.user-form {
+// 		margin-top: -20px;
+// 		height: 480px;
+// 	}
+
+// }
+
+// @media (min-width: 514px) {
+// 	h1, .user-container {
+// 		width: 400px;
+// 		// margin: 0 auto;
+// 	}
+// }
+
+// @media (min-width: 573px) {
+// 	.user-container {
+// 		width: 400px;
+// 		// margin: 0 auto;
+// 	}
+
+// 	h1 {
+// 		// margin-left: 
+// 	}
+// }
+
+// @media (min-width: 636px) {
+// 	.user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+
+// 	h1 {
+// 		margin-left: 24%;
+// 	}
+// }
+
+// @media (min-width: 713px) {
+// 	h1, .user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+// }
+
+// @media (min-width: 777px) {
+// 	h1, .user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+// }
+// @media (max-width: 875px) {
+// 	.user-container {
+	
+// 	}
+// }
+
+// @media (min-width: 927px) {
+// 	h1, .user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+// }
+// @media (min-width: 1032px) {
+// 	h1, .user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+// }
+
+// @media (min-width: 1147px) {
+// 	h1, .user-container {
+// 		width: 400px;
+// 		margin: 0 auto;
+// 	}
+// }
+// @media (min-width: 1275px) {
+// 	.user-container {
+
+
+// 	}
+// }
+
+
