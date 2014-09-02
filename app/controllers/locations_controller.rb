@@ -52,6 +52,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    # enables the export link to gather all data from locations and visitors and send to a excel file
     respond_to do |format|
       format.html { 
         @visits = @location.visits.group_by{ |x| x.created_at.to_date}
@@ -67,7 +68,7 @@ class LocationsController < ApplicationController
                                              [@location.user.agency],
                                              [@location.address],
                                              []],
-                                :except => [:id,:updated_at])) 
+                                :except => [:id,:updated_at, :created_at])) 
       }
     end
   end

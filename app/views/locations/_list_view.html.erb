@@ -8,13 +8,13 @@
         <div class="row visitor-row">
         	<div class="columns small-4 show-for-small-only">
           		<div class="columns small-4 no-pad"><%= index + 1 %>) </div>
-          		<div class="columns small-8 no-pad"> <%= v.created_at.strftime("%I:%M") %> </div>
+          		<div class="columns small-8 no-pad"> <%= v.created_at.strftime("%I:%M %p") %> </div>
           	</div>
 <!-- ------------------------------------ -->
           <!-- when visitor is added this shows the visitor starts at 1 and ^, time submited etc..  -->
           <div class="columns small-8 medium-12 no-pad">
           <div class="columns medium-1 hide-for-small-only"><%= index + 1 %> </div>
-          <div class="columns medium-2 hide-for-small-only"><%= v.created_at.strftime("%I:%M") %> </div>
+          <div class="columns medium-2 hide-for-small-only"><%= v.created_at.strftime("%I:%M %p") %> </div>
           <div class="columns small-12 medium-3 "><%= v.visitor.first_name.titleize %> <%= v.visitor.last_name.titleize %></div>
           
           <!-- email href -->

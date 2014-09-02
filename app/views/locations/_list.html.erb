@@ -19,11 +19,7 @@
                         &nbsp;&nbsp;<%=link_to "", location_path(l), class: "fi-magnifying-glass size-24" %>
                     </div>
                 </a>
-                <% if index == 0 %>
-                    <div id="panel<%=index%>" class="active content columns small-12">    
-                <% else %>
-                    <div id="panel<%=index%>" class="content columns small-12"> 
-                <% end%>
+                <div id="panel<%=index%>" class="<%= index == 0 ? 'active ' : '' %>content columns small-12">
                 <dl class="tabs" data-tab>
                     <dd class="active"><a href="#main<%=index%>">Main</a></dd>
                     <dd><a href="#visits<%=index%>">Visitors</a></dd>

@@ -1,15 +1,25 @@
 <div class="row">
 	<div class="panel">
-		<h5><%= @visit.visitor.first_name.titleize %> <%= @visit.visitor.last_name.titleize %></h5>
+		<h5><strong>Visitor Details: </strong></h5>
+		<h5><%= @visit.created_at.strftime("%d %b. %Y") %>&nbsp;at <%= @visit.created_at.strftime("%I:%M %p") %>
+		</h5>
+		<h5>
+		<%= @visit.visitor.first_name.titleize %> <%= @visit.visitor.last_name.titleize %><br>
+		<%= number_to_phone(@visit.visitor.phone_number) %>
+		</h5>
+
+
 		<h5>
 			<%= @visit.location.address.titleize %><br>
 			<%= @visit.location.city %>
 			<%= @visit.location.state %>
 			<%= @visit.location.zip_code %>
 		</h5>
+
+    <%= link_to "export", location_path(@location, :format => :xls)%>
 	</div>
 
 	<div class="panel">
-		<%= @visit.visitor.note ? @visit.visitor.note : "A note was not left for this visitor" %>
+		<h5><%= @visit.visitor.note ? @visit.visitor.note : "A note was not left for this visitor" %></h5>
 	</div>
 </div>
