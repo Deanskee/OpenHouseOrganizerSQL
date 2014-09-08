@@ -1,7 +1,7 @@
 module ApplicationHelper
 
     def current_user
-        @current_user ||= session[:remember_token] && User.find(session[:remember_token])
+        @current_user ||= session[:remember_token] && User.where(id: session[:remember_token]).first
     end
 
     def signed_in?

@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       respond_to do |format|
       flash[:success] = "Thank you for signing up!"
       UserMailer.welcome_email(@user).deliver
-      session_create # This method is inhereited from the applicaiton_controller
+      session[:remember_token] = @user.id
+      # session_create # This method is inhereited from the applicaiton_controller
       format.html  {redirect_to user_path(current_user), notice: "Welcome new user."}
       format.json { render json: @user, status: :created}
    end
