@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   protected
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.where(id:params[:id]).first
   end
 
   def authorize_user
